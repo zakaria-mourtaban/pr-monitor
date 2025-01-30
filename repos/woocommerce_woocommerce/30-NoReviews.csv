@@ -1,0 +1,31 @@
+PR#, PR Title, PR Url
+55025, "[Experimental] Product Filters: Add 100% width in editor", https://github.com/woocommerce/woocommerce/pull/55025
+55024, "Fix /wp-json/wc/store/v1/products/{productId} API to return the grouped products ids when the product type is grouped", https://github.com/woocommerce/woocommerce/pull/55024
+55023, "Prevent quantity change notice showing on mini cart when adding items", https://github.com/woocommerce/woocommerce/pull/55023
+55021, "Improve indicator that email preview is reloading", https://github.com/woocommerce/woocommerce/pull/55021
+55020, "Improve usability of email preview on small screens", https://github.com/woocommerce/woocommerce/pull/55020
+55013, "[e2e tests] Remove left over Playwright project from main config file", https://github.com/woocommerce/woocommerce/pull/55013
+55010, "Product Gallery block: Add gesture support", https://github.com/woocommerce/woocommerce/pull/55010
+55006, "Adding a defensive type conversion from anything unexpected into expe…", https://github.com/woocommerce/woocommerce/pull/55006
+55005, "Adding defencive behaviour when permalink is FALSE or empty.", https://github.com/woocommerce/woocommerce/pull/55005
+55003, "[WIP] Add/product details hook extendibility", https://github.com/woocommerce/woocommerce/pull/55003
+54995, "Move to script modules and @wordpress/interactivity for store-notices and product-button blocks", https://github.com/woocommerce/woocommerce/pull/54995
+54984, "Limit clearing of wc_count_comments transient to applicable comments.", https://github.com/woocommerce/woocommerce/pull/54984
+54979, "Sync the @wordpress/data and interactivity API cart stores when there is a change in any of them", https://github.com/woocommerce/woocommerce/pull/54979
+54975, "update logo to be merge in upcoming brand update", https://github.com/woocommerce/woocommerce/pull/54975
+54971, "[Monorepo] Merge Blocks Client Part 3: Update Docs", https://github.com/woocommerce/woocommerce/pull/54971
+54970, "Improve copy in store emails", https://github.com/woocommerce/woocommerce/pull/54970
+54968, "Add more FAQ sections to Cart/Checkout docs", https://github.com/woocommerce/woocommerce/pull/54968
+54963, "Enhancement: Remove yellow background from product category count in block themes", https://github.com/woocommerce/woocommerce/pull/54963
+54961, "Improve order details in plain text emails", https://github.com/woocommerce/woocommerce/pull/54961
+54960, "Delete changelog files based on PR 54733", https://github.com/woocommerce/woocommerce/pull/54960
+54957, "[NOX] Add new tracking events for the new Payment settings page", https://github.com/woocommerce/woocommerce/pull/54957
+54956, "Workflow to regenerate manifest and push to trunk upon PR merge", https://github.com/woocommerce/woocommerce/pull/54956
+54955, "[WC Payments NOX] Final changes and enhancements before going live", https://github.com/woocommerce/woocommerce/pull/54955
+54948, "[Settings] Add support for `woocommerce_settings_start` hook", https://github.com/woocommerce/woocommerce/pull/54948
+54946, "Allow mixing shipping and pickup on blocks checkout", https://github.com/woocommerce/woocommerce/pull/54946
+54945, "Enhance stalebot workflow to handle stale PRs and draft status changes", https://github.com/woocommerce/woocommerce/pull/54945
+54939, "Add Cc and Bcc fields to store emails", https://github.com/woocommerce/woocommerce/pull/54939
+54927, "Check if there's a 404 template before using it", https://github.com/woocommerce/woocommerce/pull/54927
+54924, "Check if the cart exists before calling `needs_payment`", https://github.com/woocommerce/woocommerce/pull/54924
+54923, "[WIP][Accessibility] Make screen readears announce stock quantity when selecting a product variation", https://github.com/woocommerce/woocommerce/pull/54923

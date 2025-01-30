@@ -1,0 +1,31 @@
+PR#, PR Title, PR Url
+55021, "Improve indicator that email preview is reloading", https://github.com/woocommerce/woocommerce/pull/55021
+55020, "Improve usability of email preview on small screens", https://github.com/woocommerce/woocommerce/pull/55020
+55013, "[e2e tests] Remove left over Playwright project from main config file", https://github.com/woocommerce/woocommerce/pull/55013
+54988, "[Shipping settings] Promote WooCommerce Shipping (replaces WCS&T)", https://github.com/woocommerce/woocommerce/pull/54988
+54975, "update logo to be merge in upcoming brand update", https://github.com/woocommerce/woocommerce/pull/54975
+54970, "Improve copy in store emails", https://github.com/woocommerce/woocommerce/pull/54970
+54968, "Add more FAQ sections to Cart/Checkout docs", https://github.com/woocommerce/woocommerce/pull/54968
+54961, "Improve order details in plain text emails", https://github.com/woocommerce/woocommerce/pull/54961
+54956, "Workflow to regenerate manifest and push to trunk upon PR merge", https://github.com/woocommerce/woocommerce/pull/54956
+54945, "Enhance stalebot workflow to handle stale PRs and draft status changes", https://github.com/woocommerce/woocommerce/pull/54945
+54940, "Avoid redirection loop in product canonical urls", https://github.com/woocommerce/woocommerce/pull/54940
+54939, "Add Cc and Bcc fields to store emails", https://github.com/woocommerce/woocommerce/pull/54939
+54927, "Check if there's a 404 template before using it", https://github.com/woocommerce/woocommerce/pull/54927
+54924, "Check if the cart exists before calling `needs_payment`", https://github.com/woocommerce/woocommerce/pull/54924
+54920, "E2E: Optimize resetting of home task list in `task-list.spec.js`", https://github.com/woocommerce/woocommerce/pull/54920
+54861, "WC_Order: Ensure status is a string in the setter", https://github.com/woocommerce/woocommerce/pull/54861
+54854, "[Experimental]: Find a way to identify when a block is descendant of the SingleProduct block", https://github.com/woocommerce/woocommerce/pull/54854
+54850, "Add category-specific post entries for manifest parsing", https://github.com/woocommerce/woocommerce/pull/54850
+54836, "[dev] Docs: add note about Ubuntu crashes case", https://github.com/woocommerce/woocommerce/pull/54836
+54820, "Add workflow to merge release branch into trunk for 9.8 CFEs", https://github.com/woocommerce/woocommerce/pull/54820
+54787, "[Experimental] Product Details: Add Compatibility Layer", https://github.com/woocommerce/woocommerce/pull/54787
+54748, "Unskip "Marketing Overview page have relevant content" E2E test on WPCOM", https://github.com/woocommerce/woocommerce/pull/54748
+54743, "Fix links to WooCommerce Beta Tester", https://github.com/woocommerce/woocommerce/pull/54743
+54725, "Introducing product stock status constants", https://github.com/woocommerce/woocommerce/pull/54725
+54724, "Bump action scheduler version to 3.9.1", https://github.com/woocommerce/woocommerce/pull/54724
+54711, "Fix Tasklist TS errors", https://github.com/woocommerce/woocommerce/pull/54711
+54710, "Fix Homescreen TS errors", https://github.com/woocommerce/woocommerce/pull/54710
+54685, "Update uses of `PAYMENT_STORE_KEY` to use the `StoreDescriptor`", https://github.com/woocommerce/woocommerce/pull/54685
+54586, "Blueprint - Fix theme activation bug", https://github.com/woocommerce/woocommerce/pull/54586
+54582, "Code Snippets Updates Working Branch", https://github.com/woocommerce/woocommerce/pull/54582
