@@ -6,60 +6,17 @@ use Illuminate\Support\Facades\File;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Carbon\Carbon;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Middleware;
 
 class GithubController extends Controller
 {
-    private function createRetryClient()
+    public $remaining = 99;
+
+    public function GetOldPrs($repo)
     {
-        $stack = HandlerStack::create();
-        $retryAfter = 15; // Default retry time in seconds
-        $maxRetries = 3; // Maximum number of retry attempts
-
-        $stack->push(Middleware::retry(
-            function ($retries, $request, $response, $exception) use (&$retryAfter, $maxRetries) {
-                // Stop retrying if maximum retries exceeded
-                if ($retries >= $maxRetries) {
-                    return false;
-                }
-
-                if ($exception instanceof RequestException && $exception->hasResponse()) {
-                    $response = $exception->getResponse();
-
-                    if ($response->getStatusCode() === 403) {
-                        // Get rate limit reset time from headers
-                        $resetTimestamp = $response->hasHeader('X-RateLimit-Reset')
-                            ? (int)$response->getHeader('X-RateLimit-Reset')[0]
-                            : time() + 3600; // Default to 1 hour if missing
-
-                        $retryAfter = max($resetTimestamp - time(), 15);
-                        echo "⚠️ Rate limit exceeded. Resets at " . date('Y-m-d H:i:s', $resetTimestamp) . " (" . $retryAfter . "s)\n";
-                    }
-                }
-
-                // Retry for any RequestException (up to maxRetries)
-                if ($exception instanceof RequestException) {
-                    return true;
-                }
-                return false;
-            },
-            function ($retries) use (&$retryAfter) {
-                $delay = $retryAfter * 1000; // Convert to milliseconds
-                echo "⏳ Waiting {$retryAfter} seconds before retry...\n";
-                return $delay;
-            }
-        ));
-
-        return new Client([
-            'handler' => $stack,
+        $client = new Client([
             'verify' => false,
             'http_errors' => true
         ]);
-    }
-    public function GetOldPrs($repo)
-    {
-        $client = $this->createRetryClient();
         $url = "https://api.github.com/repos/{$repo}/pulls";
         $oldPrs = [];
         $threshold = Carbon::now()->subDays(14);
@@ -75,6 +32,7 @@ class GithubController extends Controller
             ]);
 
             $rateLimitRemaining = $response->getHeader('X-RateLimit-Remaining')[0] ?? 'unknown';
+            $this->remaining = $rateLimitRemaining;
             $message = "OldPRs success for {$repo}. Remaining calls: {$rateLimitRemaining}";
             logger()->info($message);
             echo "✅ $message\n";
@@ -109,7 +67,10 @@ class GithubController extends Controller
 
     private function searchPrs($repo, $qualifier, $fileName)
     {
-        $client = $this->createRetryClient();
+        $client = new Client([
+            'verify' => false,
+            'http_errors' => true
+        ]);
         $query = urlencode("repo:{$repo} is:pr is:open {$qualifier}");
         $url = "https://api.github.com/search/issues?q={$query}";
 
@@ -123,6 +84,7 @@ class GithubController extends Controller
             ]);
 
             $rateLimitRemaining = $response->getHeader('X-RateLimit-Remaining')[0] ?? 'unknown';
+            $this->remaining = $rateLimitRemaining;
             $message = "{$fileName} success for {$repo}. Remaining calls: {$rateLimitRemaining}";
             logger()->info($message);
             echo "✅ $message\n";
@@ -228,6 +190,10 @@ class GithubController extends Controller
                 echo "$message\n";
 
                 try {
+                    if ($this->remaining <= 5) {
+                        echo "⚠️ Ratelimit has been reached, sleeping for 30 seconds";
+                        sleep(30);
+                    }
                     $this->GetOldPrs($repo);
                     $this->GetOpenPrsWithoutReviews($repo);
                     $this->GetOpenPrsWithReview($repo);
