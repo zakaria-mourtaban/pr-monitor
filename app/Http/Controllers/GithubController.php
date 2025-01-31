@@ -175,6 +175,7 @@ class GithubController extends Controller
     {
         $filePath = base_path('.repolist');
 
+        //check if the list exists
         if (!File::exists($filePath)) {
             $message = 'Repo list file not found at ' . $filePath;
             logger()->error($message);
@@ -182,7 +183,9 @@ class GithubController extends Controller
             return;
         }
 
+        //loop over each line in the file
         File::lines($filePath)->each(function ($repoLine) {
+            //trim extra spacing
             $repo = trim($repoLine);
             if (!empty($repo)) {
                 $message = "🚀 Processing repository: {$repo}";
@@ -190,6 +193,7 @@ class GithubController extends Controller
                 echo "$message\n";
 
                 try {
+                    //check the limit
                     if ($this->remaining <= 5) {
                         echo "⚠️ Ratelimit has been reached, sleeping for 30 seconds";
                         sleep(30);
